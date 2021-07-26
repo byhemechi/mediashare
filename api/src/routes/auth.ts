@@ -17,7 +17,9 @@ const initAuth = (app: Express) => {
         callbackURL: `https://${hostname}${!!port ? `:${port}` : ""}/`,
       },
       function (accessToken, refreshToken, profile, done) {
-        // TODO: DB auth
+        User.findOrCreate({ twitchId: profile.id }, function (err, user) {
+          return done(err, user);
+        });
       }
     )
   );
