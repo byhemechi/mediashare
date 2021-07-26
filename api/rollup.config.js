@@ -1,10 +1,16 @@
-import typescript from '@rollup/plugin-typescript';
+import typescript from "@rollup/plugin-typescript";
 
 export default {
-  input: 'src/index.ts',
+  input: "src/index.ts",
   output: {
-    dir: 'build',
-    format: 'cjs'
+    dir: "build",
+    format: "cjs",
   },
-  plugins: [typescript()]
+  plugins: [
+    typescript({
+      allowSyntheticDefaultImports: true,
+      jsx: 'React',
+      allowJs: true
+    }),
+  ],
 };

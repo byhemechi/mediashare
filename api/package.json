@@ -1,19 +1,22 @@
 {
   "dependencies": {
     "@prisma/client": "2.27.0",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "passport": "^0.4.1",
-    "passport-oauth2": "^1.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "ws": "^7.5.3"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.3",
+    "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.13",
     "@types/passport": "^1.0.7",
-    "@types/passport-oauth2": "^1.4.11",
+    "@types/react": "^17.0.15",
+    "@types/react-dom": "^17.0.9",
     "nodemon": "^2.0.12",
     "prisma": "2.27.0",
     "rimraf": "^3.0.2",
@@ -25,6 +28,6 @@
     "build": "rollup -c",
     "clean": "rimraf ./build",
     "watch": "rollup -c --watch",
-    "develop": "nodemon output/index.js"
+    "develop": "nodemon --inspect build/index.js"
   }
 }

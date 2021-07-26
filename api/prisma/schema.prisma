@@ -9,8 +9,9 @@ datasource db {
 
 model User {
   id         Int          @id @default(autoincrement())
-  TwitchID   String
+  twitch_id  String       @unique
   Redemption Redemption[]
+  Token      Token[]
 }
 
 model Redemption {
@@ -19,4 +20,14 @@ model Redemption {
   channel   Int?
   seconds   Int
   User      User?  @relation(fields: [channel], references: [id])
+}
+
+model Token {
+  id             Int      @id @default(autoincrement())
+  token          String   @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  created        DateTime @default(now()) @db.Timestamp(6)
+  user           Int?
+  twitch_access  String
+  twitch_refresh String
+  User           User?    @relation(fields: [user], references: [id])
 }

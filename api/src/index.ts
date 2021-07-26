@@ -1,16 +1,7 @@
-import express from "express";
-import IndexRoute from "./routes";
-import initAuth from "./routes/auth";
-import { hostname, port } from "./env";
-
-
-const app = express();
-
-// Simple homepage route
-app.get("/", IndexRoute);
-
-// Authentication
-initAuth(app);
+import { port } from "./env";
+import setup from "./init";
 
 // Listen on `port` and log to console
-app.listen(port, () => console.info(`Server Listening on port ${port}`));
+setup().then((app) =>
+  app.listen(port, () => console.info(`Server Listening on port ${port}`))
+);
