@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int          @id @default(autoincrement())
+  TwitchID   String
+  Redemption Redemption[]
+}
+
+model Redemption {
+  id        Int    @id @default(autoincrement())
+  reward_id String
+  channel   Int?
+  seconds   Int
+  User      User?  @relation(fields: [channel], references: [id])
+}
