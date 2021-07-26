@@ -1,12 +1,9 @@
-# fly.toml file generated for mediashare-api on 2021-07-26T23:52:15+10:00
+# fly.toml file generated for falling-grass-8745 on 2021-07-27T00:46:27+10:00
 
-app = "mediashare-api"
+app = "falling-grass-8745"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
-
-[build]
-  builder = "heroku/buildpacks:20"
 
 [env]
   PORT = "8080"
